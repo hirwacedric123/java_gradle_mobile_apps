@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarSecond"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:navigationIconTint="@color/white"
+        app:title="@string/second_title"
+        app:titleTextColor="@color/white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonOpenSchoolDb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/screen_padding"
+        android:layout_marginTop="@dimen/school_form_field_gap"
+        android:layout_marginEnd="@dimen/screen_padding"
+        android:text="@string/school_open_recycler"
+        app:backgroundTint="@color/school_fab_bg" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonCreateEventFromSaved"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/screen_padding"
+        android:layout_marginTop="@dimen/school_form_field_gap"
+        android:layout_marginEnd="@dimen/screen_padding"
+        android:text="@string/button_create_event_saved_screen"
+        app:backgroundTint="@color/tab_indicator" />
+
+    <ListView
+        android:id="@+id/simpleListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/divider"
+        android:dividerHeight="1dp" />
+</LinearLayout>
