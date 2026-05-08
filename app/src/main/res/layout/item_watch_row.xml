@@ -21,17 +21,19 @@
         android:padding="@dimen/card_padding">
 
         <FrameLayout
-            android:layout_width="96dp"
-            android:layout_height="72dp"
-            android:background="@color/surface_muted">
+            android:layout_width="@dimen/watch_thumbnail_width"
+            android:layout_height="@dimen/watch_thumbnail_height"
+            android:background="@drawable/bg_watch_thumbnail"
+            android:contentDescription="@string/cd_watch_clip_thumbnail">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="▶"
-                android:textColor="@color/tab_indicator"
-                android:textSize="28sp" />
+            <ImageView
+                android:layout_width="@dimen/watch_play_icon_size"
+                android:layout_height="@dimen/watch_play_icon_size"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_nav_play"
+                app:tint="@color/tab_indicator" />
         </FrameLayout>
 
         <LinearLayout
@@ -53,7 +55,7 @@
                 android:id="@+id/textWatchSubtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="@dimen/activity3_form_inner_gap"
                 android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
                 android:textColor="@color/text_secondary"
                 tools:text="Downtown · Live reactions" />
@@ -62,12 +64,12 @@
                 android:id="@+id/textWatchLength"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:background="@color/surface_muted"
-                android:paddingStart="8dp"
-                android:paddingTop="4dp"
-                android:paddingEnd="8dp"
-                android:paddingBottom="4dp"
+                android:layout_marginTop="@dimen/list_row_meta_gap"
+                android:background="@drawable/bg_watch_duration_chip"
+                android:paddingStart="@dimen/activity3_chip_padding_h"
+                android:paddingTop="@dimen/activity3_chip_padding_v"
+                android:paddingEnd="@dimen/activity3_chip_padding_h"
+                android:paddingBottom="@dimen/activity3_chip_padding_v"
                 android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
                 android:textColor="@color/tab_indicator"
                 tools:text="12:04" />

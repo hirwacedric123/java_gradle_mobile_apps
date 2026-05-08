@@ -31,7 +31,7 @@
             android:id="@+id/textShopPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/activity3_form_inner_gap"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             android:textColor="@color/tab_indicator"
             tools:text="$45" />
@@ -40,7 +40,7 @@
             android:id="@+id/textShopDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="@dimen/list_row_meta_gap"
             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
             android:textColor="@color/text_secondary"
             tools:text="General admission · QR emailed" />
@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/school_form_field_gap"
             android:text="@string/shop_buy"
+            app:cornerRadius="@dimen/activity3_chip_corner"
             app:strokeColor="@color/tab_indicator" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

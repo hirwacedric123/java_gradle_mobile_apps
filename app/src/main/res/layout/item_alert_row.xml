@@ -27,8 +27,8 @@
 
             <View
                 android:id="@+id/dotUnread"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
+                android:layout_width="@dimen/alert_unread_dot_size"
+                android:layout_height="@dimen/alert_unread_dot_size"
                 android:background="@drawable/bg_alert_dot" />
 
             <TextView
@@ -47,7 +47,7 @@
             android:id="@+id/textAlertTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="@dimen/list_row_meta_gap"
             android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
             android:textColor="@color/text_primary"
             tools:text="Reminder · Welcome Back Stacy" />
@@ -56,7 +56,7 @@
             android:id="@+id/textAlertSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/activity3_form_inner_gap"
             android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
             android:textColor="@color/text_secondary"
             tools:text="Starts tonight at 7:00 PM" />
