@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/activity3_surface_bg"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarActivity3Detail"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/activity3_toolbar"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:navigationIconTint="@color/white"
+        app:title="@string/activity3_detail_title"
+        app:titleTextColor="@color/white" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/screen_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageActivity3Detail"
+                android:layout_width="@dimen/school_detail_image"
+                android:layout_height="@dimen/school_detail_image"
+                android:contentDescription="@string/activity3_field_image"
+                tools:src="@android:drawable/ic_menu_agenda" />
+
+            <TextView
+                android:id="@+id/textActivity3DetailTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/school_form_field_gap"
+                android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                android:textColor="@color/text_primary"
+                tools:text="Assignment Tracker" />
+
+            <TextView
+                android:id="@+id/textActivity3DetailMeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/school_form_field_gap"
+                android:textAppearance="@style/activity3_text_body_muted"
+                tools:text="6 hours · Due 2026-05-09 · Ongoing · Urgent: Yes" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_spacing"
+                android:text="@string/activity3_category_heading"
+                android:textAppearance="@style/activity3_text_section_title" />
+
+            <LinearLayout
+                android:id="@+id/containerActivity3Categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_spacing"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonActivity3Delete"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/activity3_delete"
+                    android:textColor="@color/activity3_danger"
+                    app:rippleColor="@color/activity3_danger_ripple" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonActivity3Edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/school_form_field_gap"
+                    android:text="@string/activity3_edit"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/activity3_accent"
+                    app:rippleColor="@color/activity3_control_ripple" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

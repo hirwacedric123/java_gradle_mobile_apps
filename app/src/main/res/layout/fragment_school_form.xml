@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_background"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarSchoolForm"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/school_toolbar"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:navigationIconTint="@color/white"
+        app:titleTextColor="@color/white"
+        tools:title="@string/school_form_add_title" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:padding="@dimen/screen_padding">
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/school_card_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/school_form_field_gap"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/school_section_identity"
+                    android:textAppearance="@style/school_text_section_title" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilSchoolName"
+                    style="@style/school_input_layout_outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/school_form_field_gap"
+                    android:hint="@string/school_field_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editSchoolName"
+                        style="@style/school_input_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:maxLines="2" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilFoundedYear"
+                    style="@style/school_input_layout_outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/school_form_field_gap"
+                    android:hint="@string/school_field_founded_year">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editFoundedYear"
+                        style="@style/school_input_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="4" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilOpenedOn"
+                    style="@style/school_input_layout_outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/school_form_field_gap"
+                    android:hint="@string/school_field_opened_on">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editOpenedOn"
+                        style="@style/school_input_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/section_spacing"
+                    android:text="@string/school_field_campus_icon"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                    android:textColor="@color/text_primary" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/school_form_field_gap"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageCampusPreview"
+                        android:layout_width="@dimen/school_detail_image"
+                        android:layout_height="@dimen/school_detail_image"
+                        android:contentDescription="@string/school_field_campus_icon"
+                        android:scaleType="fitCenter"
+                        tools:src="@drawable/school_campus_modern" />
+
+                    <Spinner
+                        android:id="@+id/spinnerCampus"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/card_padding"
+                        android:layout_weight="1"
+                        android:minHeight="48dp"
+                        android:theme="@style/school_theme_spinner" />
+                </LinearLayout>
+
+                <RadioGroup
+                    android:id="@+id/radioSchoolType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/section_spacing"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/school_section_school_type"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                        android:textColor="@color/text_primary" />
+
+                    <RadioButton
+                        android:id="@+id/radioPublic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/school_control_tint"
+                        android:checked="true"
+                        android:text="@string/school_type_public"
+                        android:textColor="@color/text_primary" />
+
+                    <RadioButton
+                        android:id="@+id/radioPrivate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/school_control_tint"
+                        android:text="@string/school_type_private"
+                        android:textColor="@color/text_primary" />
+                </RadioGroup>
+
+                <CheckBox
+                    android:id="@+id/checkAccredited"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/school_form_field_gap"
+                    android:buttonTint="@color/school_control_tint"
+                    android:text="@string/school_field_accredited"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/section_spacing"
+                    android:text="@string/school_section_course"
+                    android:textAppearance="@style/school_text_section_title" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilCourseName"
+                    style="@style/school_input_layout_outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/school_form_field_gap"
+                    android:hint="@string/school_field_course_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editCourseName"
+                        style="@style/school_input_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilCredits"
+                    style="@style/school_input_layout_outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/school_form_field_gap"
+                    android:hint="@string/school_field_credits">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editCredits"
+                        style="@style/school_input_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="2" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilTermStart"
+                    style="@style/school_input_layout_outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/school_form_field_gap"
+                    android:hint="@string/school_field_term_start">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTermStart"
+                        style="@style/school_input_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/section_spacing"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonCancel"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/school_cancel"
+                        android:textColor="@color/school_toolbar_dark"
+                        app:rippleColor="@color/school_control_ripple" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonSave"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/school_form_field_gap"
+                        android:text="@string/school_save"
+                        android:textColor="@color/white"
+                        app:backgroundTint="@color/school_fab_bg" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

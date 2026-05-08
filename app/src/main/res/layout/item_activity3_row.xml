@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/activity3_card_style"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/screen_padding"
+    android:layout_marginTop="@dimen/school_card_margin"
+    android:layout_marginEnd="@dimen/screen_padding"
+    app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/card_padding">
+
+        <ImageView
+            android:id="@+id/imageActivity3"
+            android:layout_width="@dimen/school_list_thumb"
+            android:layout_height="@dimen/school_list_thumb"
+            android:contentDescription="@string/activity3_field_image"
+            tools:src="@android:drawable/ic_menu_agenda" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/card_padding"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textActivity3Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                android:textColor="@color/text_primary"
+                tools:text="Assignment Tracker" />
+
+            <TextView
+                android:id="@+id/textActivity3Meta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/school_form_field_gap"
+                android:textAppearance="@style/activity3_text_body_muted"
+                tools:text="6h · 2026-05-09 · Ongoing" />
+
+            <TextView
+                android:id="@+id/textActivity3CategoryCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/activity3_accent"
+                tools:text="1 linked category" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textActivity3Urgent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_activity3_chip"
+            android:paddingStart="@dimen/activity3_chip_padding_h"
+            android:paddingTop="@dimen/activity3_chip_padding_v"
+            android:paddingEnd="@dimen/activity3_chip_padding_h"
+            android:paddingBottom="@dimen/activity3_chip_padding_v"
+            android:text="@string/activity3_urgent_chip"
+            android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+            android:textColor="@color/activity3_toolbar_dark" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

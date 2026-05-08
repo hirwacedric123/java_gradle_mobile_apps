@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/school_card_style"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/screen_padding"
+    android:layout_marginTop="@dimen/school_card_margin"
+    android:layout_marginEnd="@dimen/screen_padding"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/card_padding">
+
+        <ImageView
+            android:id="@+id/imageCampus"
+            android:layout_width="@dimen/school_list_thumb"
+            android:layout_height="@dimen/school_list_thumb"
+            android:contentDescription="@string/school_field_campus_icon"
+            android:importantForAccessibility="no"
+            tools:src="@drawable/school_campus_modern" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/card_padding"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textSchoolName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                android:textColor="@color/text_primary"
+                tools:text="Riverside Academy" />
+
+            <TextView
+                android:id="@+id/textSchoolMeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/school_form_field_gap"
+                android:textAppearance="@style/school_text_body_muted"
+                tools:text="Founded 1962 · opened 1962-09-01" />
+
+            <TextView
+                android:id="@+id/textCourseCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:textColor="@color/school_toolbar"
+                tools:text="1 linked course(s)" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

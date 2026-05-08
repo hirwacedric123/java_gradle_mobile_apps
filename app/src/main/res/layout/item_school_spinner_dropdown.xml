@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/school_spinner_padding"
+    android:paddingTop="@dimen/school_spinner_padding_dropdown_v"
+    android:paddingEnd="@dimen/school_spinner_padding"
+    android:paddingBottom="@dimen/school_spinner_padding_dropdown_v"
+    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+    android:textColor="@color/text_primary" />
