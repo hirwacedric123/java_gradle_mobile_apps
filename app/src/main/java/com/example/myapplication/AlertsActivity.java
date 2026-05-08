@@ -21,6 +21,7 @@ public class AlertsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alerts);
+        BottomNavHelper.bind(this, BottomNavHelper.TAB_ALERTS);
 
         MaterialToolbar toolbar = findViewById(R.id.toolbarAlerts);
         setSupportActionBar(toolbar);

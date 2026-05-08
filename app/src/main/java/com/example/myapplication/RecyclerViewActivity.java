@@ -16,6 +16,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
+        BottomNavHelper.bind(this, BottomNavHelper.TAB_MENU);
         if (savedInstanceState == null) {
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(R.id.fragment1, new SchoolListFragment()).commit();

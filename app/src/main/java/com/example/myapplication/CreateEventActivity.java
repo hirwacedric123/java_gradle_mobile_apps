@@ -36,6 +36,7 @@ public class CreateEventActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
+        BottomNavHelper.bind(this, BottomNavHelper.TAB_MENU);
         dbHelper = new UserEventsDbHelper(this);
 
         MaterialToolbar toolbar = findViewById(R.id.toolbarCreateEvent);

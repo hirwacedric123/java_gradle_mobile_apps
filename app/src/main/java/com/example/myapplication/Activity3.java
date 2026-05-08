@@ -16,6 +16,7 @@ public class Activity3 extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity3);
+        BottomNavHelper.bind(this, BottomNavHelper.TAB_MENU);
         if (savedInstanceState == null) {
             showList(false);
         }

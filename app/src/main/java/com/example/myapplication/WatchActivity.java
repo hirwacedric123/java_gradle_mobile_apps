@@ -21,6 +21,7 @@ public class WatchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_watch);
+        BottomNavHelper.bind(this, BottomNavHelper.TAB_WATCH);
 
         MaterialToolbar toolbar = findViewById(R.id.toolbarWatch);
         setSupportActionBar(toolbar);

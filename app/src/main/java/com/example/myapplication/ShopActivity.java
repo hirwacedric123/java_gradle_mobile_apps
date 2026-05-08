@@ -22,6 +22,7 @@ public class ShopActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
+        BottomNavHelper.bind(this, BottomNavHelper.TAB_SHOP);
 
         MaterialToolbar toolbar = findViewById(R.id.toolbarShop);
         setSupportActionBar(toolbar);
