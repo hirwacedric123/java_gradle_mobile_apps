@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="screen_padding">16dp</dimen>
+    <dimen name="section_title_margin_top">20dp</dimen>
+    <dimen name="card_corner_lg">12dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="section_spacing">20dp</dimen>
+    <!-- ~16:9 cards; next card peeks when horizontal scroll padding is used -->
+    <dimen name="popular_card_width">272dp</dimen>
+    <dimen name="popular_card_height">153dp</dimen>
+    <dimen name="school_campus_icon_size">56dp</dimen>
+    <dimen name="school_list_thumb">52dp</dimen>
+    <dimen name="school_form_field_gap">12dp</dimen>
+    <dimen name="school_card_margin">12dp</dimen>
+    <dimen name="school_detail_image">120dp</dimen>
+    <dimen name="school_card_elevation">2dp</dimen>
+    <dimen name="school_form_input_text_size">16sp</dimen>
+    <dimen name="school_spinner_padding">12dp</dimen>
+    <dimen name="school_spinner_padding_dropdown_v">14dp</dimen>
+    <dimen name="activity3_chip_corner">8dp</dimen>
+    <dimen name="activity3_chip_padding_h">10dp</dimen>
+    <dimen name="activity3_chip_padding_v">6dp</dimen>
+    <dimen name="activity3_list_bottom_padding">88dp</dimen>
+    <dimen name="activity3_form_card_gap">16dp</dimen>
+    <dimen name="activity3_form_inner_gap">6dp</dimen>
+    <dimen name="activity3_preview_padding">12dp</dimen>
+    <dimen name="activity3_form_inset_radius">10dp</dimen>
+    <dimen name="activity3_form_section_gap">20dp</dimen>
+    <dimen name="activity3_form_footer_elevation">8dp</dimen>
+    <dimen name="activity3_form_row_gap">10dp</dimen>
+</resources>

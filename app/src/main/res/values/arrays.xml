@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="hosting_visibility_options">
+        <item>Friends</item>
+        <item>Public</item>
+        <item>Only me</item>
+    </string-array>
+    <!-- Keys stored in DB column campus_image_key; order matches labels. -->
+    <string-array name="school_campus_keys">
+        <item>campus_modern</item>
+        <item>campus_classic</item>
+        <item>campus_green</item>
+    </string-array>
+    <string-array name="activity3_image_keys">
+        <item>img_agenda</item>
+        <item>img_camera</item>
+        <item>img_gallery</item>
+    </string-array>
+    <string-array name="activity3_image_labels">
+        <item>Agenda icon</item>
+        <item>Camera icon</item>
+        <item>Gallery icon</item>
+    </string-array>
+
+    <string-array name="event_categories">
+        <item>General</item>
+        <item>Music</item>
+        <item>Sports</item>
+        <item>Food</item>
+        <item>Community</item>
+        <item>Arts</item>
+        <item>Education</item>
+    </string-array>
+
+    <string-array name="watch_clip_titles">
+        <item>SF Jazz Alley highlights</item>
+        <item>Ferry Plaza sunrise yoga recap</item>
+        <item>Mission street mural tour</item>
+        <item>Bay Lights drone rehearsal</item>
+    </string-array>
+    <string-array name="watch_clip_subtitles">
+        <item>Downtown · Live crowd reactions</item>
+        <item>Waterfront · Instructor audio tips</item>
+        <item>Mission · Artist interviews</item>
+        <item>Embarcadero · Night rehearsal clips</item>
+    </string-array>
+    <string-array name="watch_clip_lengths">
+        <item>12:04</item>
+        <item>08:56</item>
+        <item>15:22</item>
+        <item>06:11</item>
+    </string-array>
+
+    <string-array name="shop_product_titles">
+        <item>Weekend GA ticket</item>
+        <item>Hoodie · Neon Ships</item>
+        <item>LED wristband pack</item>
+        <item>VIP balcony upgrade</item>
+        <item>Parking pass · Pier lot</item>
+        <item>Donation · SF youth arts</item>
+    </string-array>
+    <string-array name="shop_product_prices">
+        <item>$45</item>
+        <item>$62</item>
+        <item>$18</item>
+        <item>$120</item>
+        <item>$22</item>
+        <item>$15</item>
+    </string-array>
+    <string-array name="shop_product_details">
+        <item>General admission · QR emailed</item>
+        <item>Unisex · ships in 5 days</item>
+        <item>Pack of 4 · synced colors</item>
+        <item>Saturday show · Section B</item>
+        <item>Valid event night only</item>
+        <item>Receipt emailed</item>
+    </string-array>
+
+    <string-array name="alerts_item_titles">
+        <item>Reminder · Welcome Back Stacy</item>
+        <item>New invite · Rooftop mixer draft</item>
+        <item>Ticket transferred</item>
+        <item>Weather advisory · Embarcadero</item>
+        <item>Friends going · Night Market</item>
+    </string-array>
+    <string-array name="alerts_item_subtitles">
+        <item>Starts tonight at 7:00 PM · Lombard Palace Cafe</item>
+        <item>Finish publishing to send invites</item>
+        <item>Neon Ships · Accepted by Tinwin</item>
+        <item>Breezy · Bring a layer for pier events</item>
+        <item>12 friends interested · RSVP closes Friday</item>
+    </string-array>
+    <string-array name="alerts_item_times">
+        <item>2h ago</item>
+        <item>Yesterday</item>
+        <item>Mon</item>
+        <item>Sun</item>
+        <item>Sat</item>
+    </string-array>
+</resources>

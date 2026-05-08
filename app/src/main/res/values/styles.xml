@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dotted names like Widget.School.Card imply parent Widget.School — must use flat names. -->
+    <style name="school_text_section_title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/school_toolbar_dark</item>
+    </style>
+    <style name="school_text_body_muted" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+    <style name="school_card_style" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/card_corner_lg</item>
+        <item name="strokeColor">@color/school_card_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardElevation">@dimen/school_card_elevation</item>
+    </style>
+
+    <style name="school_input_layout_outlined" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/school_input_stroke</item>
+        <item name="hintTextColor">@color/school_input_hint</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+    </style>
+
+    <style name="school_input_edit_text">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/school_form_input_text_size</item>
+    </style>
+
+    <style name="school_theme_spinner" parent="ThemeOverlay.MaterialComponents.Light">
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="activity3_text_section_title" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">@color/activity3_toolbar_dark</item>
+    </style>
+    <style name="activity3_text_body_muted" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+    <style name="activity3_card_style" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/card_corner_lg</item>
+        <item name="strokeColor">@color/activity3_card_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardElevation">@dimen/school_card_elevation</item>
+    </style>
+    <style name="activity3_input_layout_outlined" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/activity3_input_stroke</item>
+        <item name="hintTextColor">@color/activity3_input_hint</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+    </style>
+
+    <style name="activity3_theme_spinner" parent="ThemeOverlay.MaterialComponents.Light">
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    <style name="activity3_input_edit_text">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="android:textSize">@dimen/school_form_input_text_size</item>
+    </style>
+
+    <style name="activity3_form_section_subtitle" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="activity3_toggle_button" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/activity3_input_stroke</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+    </style>
+
+    <style name="activity3_field_label" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+</resources>
