@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path
+        android:fillColor="@color/school_campus_modern_fill"
+        android:pathData="M8,40 L8,18 L24,8 L40,18 L40,40 Z" />
+    <path
+        android:fillColor="@color/school_campus_modern_window"
+        android:pathData="M14,26 L18,26 L18,32 L14,32 Z M22,26 L26,26 L26,32 L22,32 Z M30,26 L34,26 L34,32 L30,32 Z" />
+</vector>
