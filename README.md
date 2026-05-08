@@ -1,4 +1,5 @@
-# Mobile Apps Year 3
+# Mobile App
+
 
 Android + Flask coursework project that combines:
 - a native Android app (`app/`)
