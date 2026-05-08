@@ -21,6 +21,8 @@
     <color name="bottom_icon">#6B7280</color>
     <color name="going_green">#16A34A</color>
     <color name="page_background">#F2F4F7</color>
+    <!-- Hero intro strips on feature screens (Watch, Shop, Alerts, etc.) -->
+    <color name="feature_hero_surface">#F1F5F9</color>
     <color name="card_outline">#E2E8F0</color>
     <color name="accent_strip_calendar">#2563EB</color>
     <color name="accent_strip_hosting_draft">#EA580C</color>

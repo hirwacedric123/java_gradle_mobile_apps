@@ -28,4 +28,11 @@
     <dimen name="activity3_form_section_gap">20dp</dimen>
     <dimen name="activity3_form_footer_elevation">8dp</dimen>
     <dimen name="activity3_form_row_gap">10dp</dimen>
+    <dimen name="watch_thumbnail_width">104dp</dimen>
+    <dimen name="watch_thumbnail_height">78dp</dimen>
+    <dimen name="watch_play_icon_size">34dp</dimen>
+    <dimen name="list_row_meta_gap">6dp</dimen>
+    <dimen name="alert_unread_dot_size">10dp</dimen>
+    <dimen name="recycler_bottom_padding_nav">72dp</dimen>
+    <dimen name="school_list_recycler_bottom_padding">96dp</dimen>
 </resources>

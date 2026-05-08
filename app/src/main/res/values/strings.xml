@@ -28,6 +28,8 @@
     <string name="popular_street_fair">STREET FAIR</string>
     <string name="popular_night_market">NIGHT MARKET</string>
     <string name="second_title">Saved events</string>
+    <string name="second_page_headline">Saved hub</string>
+    <string name="second_saved_hint">Review saved records, then jump into school or event workflows from here.</string>
     <string name="list_header">SimpleListView items</string>
     <string name="popular_menu_sort">Sort by interest</string>
     <string name="popular_menu_share">Share weekend picks</string>
@@ -82,6 +84,7 @@
     <string name="school_menu_open_registry">School registry (Assignment 3)</string>
     <string name="school_toolbar_short">School</string>
     <string name="school_open_recycler">School database (RecyclerView)</string>
+    <string name="school_list_headline">School directory</string>
     <string name="school_list_subtitle">Tap a school for details. Use + to add a record.</string>
     <string name="school_fab_add_content_description">Add school</string>
     <string name="school_campus_modern_label">Modern campus</string>
@@ -179,12 +182,18 @@
     <string name="saved_events_demo_separator">Suggested picks</string>
     <string name="button_create_event_saved_screen">Create new event</string>
     <string name="watch_title">Watch</string>
+    <string name="watch_page_headline">Curated streams</string>
     <string name="watch_subtitle">Live and replay picks around San Francisco</string>
+    <string name="cd_watch_clip_thumbnail">Play clip preview</string>
     <string name="shop_title">Marketplace</string>
+    <string name="shop_page_headline">Featured picks</string>
     <string name="shop_subtitle">Tickets, merch, and gear for local events</string>
     <string name="alerts_title">Alerts</string>
+    <string name="alerts_page_headline">Your inbox</string>
     <string name="alerts_subtitle">Invites, reminders, and updates</string>
     <string name="create_event_title">Create event</string>
+    <string name="create_event_page_headline">Host an event</string>
+    <string name="create_event_page_lede">Add the essentials here. Public listings appear on the Events tab.</string>
     <string name="create_event_section_details">Event details</string>
     <string name="create_event_field_title">Event title</string>
     <string name="create_event_field_location">Venue or address</string>
