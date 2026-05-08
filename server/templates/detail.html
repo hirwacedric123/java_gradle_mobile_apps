@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ record.title }} — Assignment 4</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assignment4.css') }}" />
+</head>
+<body class="a4-app">
+    <header class="a4-header">
+        <div class="a4-header-inner">
+            <h1>Record details</h1>
+            <p>{{ record.title }}</p>
+        </div>
+    </header>
+
+    <main class="a4-main">
+        <article class="a4-card">
+            <h2 class="a4-detail-title">{{ record.title }}</h2>
+            <div class="a4-line"><strong>Estimate</strong> · {{ record.estimate_hours }}h</div>
+            <div class="a4-line"><strong>Due date</strong> · {{ record.due_date }}</div>
+            <div class="a4-line"><strong>Status</strong> · {{ record.status_text }}</div>
+            <div class="a4-line"><strong>Urgent</strong> · {{ "Yes" if record.urgent else "No" }}</div>
+
+            <div class="a4-detail-section">
+                <h3>Linked categories</h3>
+                <ul>
+                    {% for c in record.categories %}
+                        <li>{{ c.category_name }} — priority {{ c.priority_level }} — review {{ c.review_date }}</li>
+                    {% else %}
+                        <li>No categories linked.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="a4-detail-actions">
+                <form action="/records/{{ record.id }}/delete" method="post">
+                    <button class="a4-btn a4-btn-danger" type="submit">Delete record</button>
+                </form>
+                <p class="a4-detail-footer-links">
+                    <a class="a4-link" href="/records/{{ record.id }}/edit">Edit this record</a>
+                    <span class="a4-meta"> · </span>
+                    <a class="a4-link" href="/">Back to list</a>
+                </p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

@@ -1,0 +1,542 @@
+/**
+ * Assignment 4 — shared palette (matches Android slate + teal).
+ * Edit variables here to retheme web + keep parity with mobile accent intent.
+ */
+:root {
+    --a4-bg: #f8fafc;
+    --a4-surface: #ffffff;
+    --a4-field-bg: #fafafa;
+    --a4-text: #0f172a;
+    --a4-text-muted: #64748b;
+    --a4-border: #e2e8f0;
+    --a4-primary: #1e293b;
+    --a4-primary-dark: #0f172a;
+    --a4-accent: #0f766e;
+    --a4-accent-hover: #115e59;
+    --a4-accent-soft: #ecfdf5;
+    --a4-accent-border: #99f6e4;
+    --a4-danger: #b91c1c;
+    --a4-danger-hover: #991b1b;
+    --a4-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 4px 12px rgba(15, 23, 42, 0.06);
+    --a4-radius: 12px;
+    --a4-radius-sm: 8px;
+    --a4-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body.a4-app {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--a4-font);
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--a4-text);
+    background: var(--a4-bg);
+}
+
+.a4-header {
+    background: linear-gradient(135deg, var(--a4-primary) 0%, var(--a4-primary-dark) 100%);
+    color: #fff;
+    padding: 1.25rem 1.5rem;
+    box-shadow: var(--a4-shadow);
+}
+
+.a4-header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.a4-header h1 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.a4-header p {
+    margin: 0.35rem 0 0;
+    font-size: 0.875rem;
+    opacity: 0.88;
+}
+
+.a4-main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.a4-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.a4-empty {
+    color: var(--a4-text-muted);
+    padding: 2rem;
+    text-align: center;
+    background: var(--a4-surface);
+    border-radius: var(--a4-radius);
+    border: 1px dashed var(--a4-border);
+}
+
+/* Cards */
+.a4-card {
+    background: var(--a4-surface);
+    border-radius: var(--a4-radius);
+    padding: 1.15rem 1.25rem;
+    margin-bottom: 0.85rem;
+    border: 1px solid var(--a4-border);
+    box-shadow: var(--a4-shadow);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.a4-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08), 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.a4-card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.a4-card h3 a {
+    color: var(--a4-text);
+    text-decoration: none;
+}
+
+.a4-card h3 a:hover {
+    color: var(--a4-accent);
+}
+
+.a4-meta {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--a4-text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.a4-chip {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: var(--a4-accent-soft);
+    color: var(--a4-primary-dark);
+    border: 1px solid var(--a4-accent-border);
+}
+
+.a4-card-actions {
+    margin-top: 0.65rem;
+}
+
+/* Buttons & links */
+.a4-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: inherit;
+    border-radius: var(--a4-radius-sm);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.a4-btn-primary {
+    background: var(--a4-accent);
+    color: #fff;
+}
+
+.a4-btn-primary:hover {
+    background: var(--a4-accent-hover);
+}
+
+.a4-btn-danger {
+    background: var(--a4-danger);
+    color: #fff;
+}
+
+.a4-btn-danger:hover {
+    background: var(--a4-danger-hover);
+}
+
+.a4-link {
+    color: var(--a4-accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.a4-link:hover {
+    color: var(--a4-accent-hover);
+    text-decoration: underline;
+}
+
+/* Form panel — base + advanced variant */
+.a4-panel {
+    max-width: 560px;
+    background: var(--a4-surface);
+    border-radius: var(--a4-radius);
+    padding: 1.35rem 1.5rem;
+    border: 1px solid var(--a4-border);
+    box-shadow: var(--a4-shadow);
+}
+
+.a4-panel--form {
+    max-width: 720px;
+    padding: 0;
+}
+
+.a4-panel__intro {
+    padding: 1.35rem 1.65rem;
+    background: linear-gradient(165deg, var(--a4-accent-soft) 0%, var(--a4-surface) 55%);
+    border-bottom: 1px solid var(--a4-border);
+}
+
+.a4-panel__intro h2 {
+    margin: 0;
+    font-size: 1.28rem;
+    font-weight: 600;
+    color: var(--a4-primary-dark);
+    letter-spacing: -0.02em;
+}
+
+.a4-panel__intro p {
+    margin: 0.45rem 0 0;
+    font-size: 0.875rem;
+    color: var(--a4-text-muted);
+    line-height: 1.45;
+    max-width: 38rem;
+}
+
+.a4-panel__body {
+    padding: 1.5rem 1.65rem 1.25rem;
+}
+
+.a4-panel h2 {
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--a4-primary-dark);
+}
+
+/* Sections & step headers */
+.a4-form-section {
+    margin-bottom: 1.75rem;
+}
+
+.a4-form-section:last-of-type {
+    margin-bottom: 1rem;
+}
+
+.a4-form-section__head {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.a4-step-badge {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    background: var(--a4-accent-soft);
+    border: 1px solid var(--a4-accent-border);
+    color: var(--a4-accent);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.a4-form-section__titles h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--a4-primary-dark);
+}
+
+.a4-form-section__titles .a4-lede {
+    margin: 0.25rem 0 0;
+    font-size: 0.8125rem;
+    color: var(--a4-text-muted);
+    line-height: 1.4;
+}
+
+/* Responsive field grid */
+.a4-form-grid {
+    display: grid;
+    gap: 1rem 1.15rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+    .a4-form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .a4-span-2 {
+        grid-column: span 2;
+    }
+}
+
+.a4-field {
+    margin-bottom: 0;
+}
+
+.a4-field label .a4-label-text {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--a4-primary);
+    margin-bottom: 0.35rem;
+}
+
+.a4-hint {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--a4-text-muted);
+    margin-top: 0.35rem;
+    line-height: 1.35;
+}
+
+.a4-field input,
+.a4-field select {
+    width: 100%;
+    padding: 0.62rem 0.75rem;
+    font-size: 0.9375rem;
+    font-family: inherit;
+    border: 1px solid var(--a4-border);
+    border-radius: var(--a4-radius-sm);
+    background: var(--a4-field-bg);
+    color: var(--a4-text);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.a4-field input:hover,
+.a4-field select:hover {
+    border-color: #cbd5e1;
+}
+
+.a4-field input:focus,
+.a4-field select:focus {
+    outline: none;
+    border-color: var(--a4-accent);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.18);
+}
+
+.a4-field select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.65rem center;
+    padding-right: 2rem;
+}
+
+/* Segmented control (status) */
+.a4-segmented {
+    display: flex;
+    gap: 0;
+    padding: 4px;
+    border-radius: 12px;
+    border: 1px solid var(--a4-border);
+    background: var(--a4-field-bg);
+}
+
+.a4-segmented label {
+    flex: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+.a4-segmented input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+}
+
+.a4-segmented span {
+    display: block;
+    text-align: center;
+    padding: 0.65rem 0.5rem;
+    border-radius: 9px;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    color: var(--a4-text-muted);
+    transition: background 0.15s ease, color 0.15s ease;
+    pointer-events: none;
+}
+
+.a4-segmented input:hover + span {
+    color: var(--a4-text);
+}
+
+.a4-segmented input:checked + span {
+    background: var(--a4-accent);
+    color: #fff;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+.a4-segmented input:focus-visible + span {
+    outline: 2px solid var(--a4-accent);
+    outline-offset: 2px;
+}
+
+/* Priority flag card */
+.a4-flag-card {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    padding: 1rem 1.1rem;
+    border-radius: var(--a4-radius-sm);
+    border: 1px solid var(--a4-accent-border);
+    background: var(--a4-accent-soft);
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.a4-flag-card:hover {
+    border-color: var(--a4-accent);
+    box-shadow: 0 2px 8px rgba(15, 118, 110, 0.12);
+}
+
+.a4-flag-card input[type="checkbox"] {
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: 0.15rem;
+    accent-color: var(--a4-accent);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.a4-flag-card__text strong {
+    display: block;
+    font-size: 0.9375rem;
+    color: var(--a4-primary-dark);
+}
+
+.a4-flag-card__text .a4-hint {
+    margin-top: 0.2rem;
+}
+
+/* Sticky-ish actions row */
+.a4-form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--a4-border);
+}
+
+.a4-form-actions__hint {
+    flex: 1;
+    min-width: 200px;
+    font-size: 0.75rem;
+    color: var(--a4-text-muted);
+    line-height: 1.4;
+}
+
+.a4-form-actions__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.a4-btn-secondary {
+    background: transparent;
+    color: var(--a4-primary);
+    border: 1px solid var(--a4-border);
+}
+
+.a4-btn-secondary:hover {
+    background: var(--a4-field-bg);
+    border-color: #cbd5e1;
+}
+
+.a4-btn-lg {
+    padding: 0.62rem 1.35rem;
+    font-size: 0.9375rem;
+}
+
+.a4-field-actions {
+    margin-top: 1.25rem;
+}
+
+/* Detail */
+.a4-detail-title {
+    margin: 0 0 1rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--a4-primary-dark);
+}
+
+.a4-line {
+    margin: 0.35rem 0;
+    font-size: 0.9375rem;
+}
+
+.a4-detail-section {
+    margin-top: 1.25rem;
+}
+
+.a4-detail-section h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--a4-primary);
+}
+
+.a4-detail-section ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: var(--a4-text-muted);
+}
+
+.a4-detail-section li {
+    margin: 0.25rem 0;
+}
+
+.a4-detail-actions {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--a4-border);
+}
+
+.a4-detail-actions form {
+    margin-bottom: 0.75rem;
+}
+
+.a4-back-row {
+    margin-top: 1.25rem;
+}
+
+.a4-detail-footer-links {
+    margin: 0;
+}

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ "Edit" if mode == "edit" else "Create" }} record — Assignment 4</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assignment4.css') }}" />
+</head>
+<body class="a4-app">
+    <header class="a4-header">
+        <div class="a4-header-inner">
+            <h1>{{ "Edit" if mode == "edit" else "Create" }} record</h1>
+            <p>Structured form · validates required fields · saves to SQLite</p>
+        </div>
+    </header>
+
+    <main class="a4-main">
+        <div class="a4-panel a4-panel--form">
+            <div class="a4-panel__intro">
+                <h2>Project registry</h2>
+                <p>Complete both steps: project fields are stored in the primary table; category fields create the linked row required for your assignment schema.</p>
+            </div>
+
+            <div class="a4-panel__body">
+                <form action="{{ '/records/' ~ record.id ~ '/edit' if mode == 'edit' else '/records/new' }}" method="post" novalidate>
+                    <section class="a4-form-section" aria-labelledby="sec-project">
+                        <div class="a4-form-section__head">
+                            <span class="a4-step-badge" aria-hidden="true">1</span>
+                            <div class="a4-form-section__titles">
+                                <h3 id="sec-project">Project details</h3>
+                                <p class="a4-lede">Identity, timeline, presentation, and lifecycle status.</p>
+                            </div>
+                        </div>
+
+                        <div class="a4-form-grid">
+                            <div class="a4-field a4-span-2">
+                                <label for="title">
+                                    <span class="a4-label-text">Title</span>
+                                </label>
+                                <input id="title" name="title" autocomplete="off" value="{{ record.title if record else '' }}" required />
+                                <span class="a4-hint">Short, recognizable label — shown in lists on web and Android.</span>
+                            </div>
+
+                            <div class="a4-field">
+                                <label for="estimate_hours">
+                                    <span class="a4-label-text">Estimate (hours)</span>
+                                </label>
+                                <input id="estimate_hours" type="number" min="1" max="100" name="estimate_hours" inputmode="numeric" value="{{ record.estimate_hours if record else '' }}" required />
+                                <span class="a4-hint">Whole hours between 1 and 100.</span>
+                            </div>
+
+                            <div class="a4-field">
+                                <label for="due_date">
+                                    <span class="a4-label-text">Due date</span>
+                                </label>
+                                <input id="due_date" type="date" name="due_date" value="{{ record.due_date if record else '' }}" required />
+                                <span class="a4-hint">Stored as yyyy-MM-dd for API parity.</span>
+                            </div>
+
+                            <div class="a4-field">
+                                <label for="image_key">
+                                    <span class="a4-label-text">List icon</span>
+                                </label>
+                                <select id="image_key" name="image_key">
+                                    <option value="img_agenda" {% if record and record.image_key == "img_agenda" %}selected{% endif %}>Agenda</option>
+                                    <option value="img_camera" {% if record and record.image_key == "img_camera" %}selected{% endif %}>Camera</option>
+                                    <option value="img_gallery" {% if record and record.image_key == "img_gallery" %}selected{% endif %}>Gallery</option>
+                                </select>
+                                <span class="a4-hint">Maps to lightweight drawable keys on mobile.</span>
+                            </div>
+
+                            <div class="a4-field a4-span-2">
+                                <span class="a4-label-text" id="status-label">Status</span>
+                                <div class="a4-segmented" role="radiogroup" aria-labelledby="status-label">
+                                    <label>
+                                        <input type="radio" name="status" value="0" {% if not record or record.status == 0 %}checked{% endif %} />
+                                        <span>Planned</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="status" value="1" {% if record and record.status == 1 %}checked{% endif %} />
+                                        <span>Ongoing</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="status" value="2" {% if record and record.status == 2 %}checked{% endif %} />
+                                        <span>Completed</span>
+                                    </label>
+                                </div>
+                                <span class="a4-hint">Segmented control reflects lifecycle stage across UI surfaces.</span>
+                            </div>
+
+                            <div class="a4-field a4-span-2">
+                                <label class="a4-flag-card">
+                                    <input type="checkbox" name="urgent" value="1" {% if record and record.urgent %}checked{% endif %} />
+                                    <span class="a4-flag-card__text">
+                                        <strong>High priority</strong>
+                                        <span class="a4-hint">Flag urgent items for faster scanning in dashboards and RecyclerView badges.</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="a4-form-section" aria-labelledby="sec-category">
+                        <div class="a4-form-section__head">
+                            <span class="a4-step-badge" aria-hidden="true">2</span>
+                            <div class="a4-form-section__titles">
+                                <h3 id="sec-category">Linked category</h3>
+                                <p class="a4-lede">Required secondary row — foreign key relationship for marking criteria.</p>
+                            </div>
+                        </div>
+
+                        <div class="a4-form-grid">
+                            <div class="a4-field a4-span-2">
+                                <label for="category_name">
+                                    <span class="a4-label-text">Category name</span>
+                                </label>
+                                <input id="category_name" name="category_name" value="{{ category.category_name if category else '' }}" required />
+                                <span class="a4-hint">Describes how this project is grouped or reviewed.</span>
+                            </div>
+
+                            <div class="a4-field">
+                                <label for="priority_level">
+                                    <span class="a4-label-text">Priority (1–5)</span>
+                                </label>
+                                <input id="priority_level" type="number" min="1" max="5" name="priority_level" inputmode="numeric" value="{{ category.priority_level if category else '' }}" required />
+                                <span class="a4-hint">1 = lowest, 5 = highest.</span>
+                            </div>
+
+                            <div class="a4-field">
+                                <label for="review_date">
+                                    <span class="a4-label-text">Review date</span>
+                                </label>
+                                <input id="review_date" type="date" name="review_date" value="{{ category.review_date if category else '' }}" required />
+                                <span class="a4-hint">Next review checkpoint for this category.</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="a4-form-actions">
+                        <p class="a4-form-actions__hint">Submit writes to the server database immediately. Use Cancel to return to the list without saving this draft.</p>
+                        <div class="a4-form-actions__buttons">
+                            <a class="a4-btn a4-btn-secondary a4-btn-lg" href="/">Cancel</a>
+                            <button class="a4-btn a4-btn-primary a4-btn-lg" type="submit">{{ "Update record" if mode == "edit" else "Save record" }}</button>
+                        </div>
+                    </div>
+                </form>
+
+                <p class="a4-back-row"><a class="a4-link" href="/">← Back to list</a></p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
