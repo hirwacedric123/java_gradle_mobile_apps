@@ -7,27 +7,57 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='assignment4.css') }}" />
 </head>
 <body class="a4-app">
+    {% set total = records|length %}
+    {% set urgent = records | selectattr('urgent') | list | length %}
+    {% set categories = records | map(attribute='categories') | map('length') | sum %}
     <header class="a4-header">
         <div class="a4-header-inner">
             <h1>Assignment 4 registry</h1>
-            <p>Linked project records and categories — localhost web client</p>
+            <p>Linked project records and categories on localhost</p>
         </div>
     </header>
 
     <main class="a4-main">
-        <div class="a4-toolbar">
-            <a class="a4-btn a4-btn-primary" href="/records/new">Create record</a>
+        <section class="a4-landing-hero">
+            <div class="a4-landing-hero__content">
+                <h2>Landing dashboard</h2>
+                <p>Monitor your Assignment 4 progress, review priorities, and jump directly into create/edit flows.</p>
+            </div>
+            <a class="a4-btn a4-btn-primary a4-btn-lg" href="/records/new">Create record</a>
+        </section>
+
+        <section class="a4-metrics" aria-label="Dashboard summary">
+            <article class="a4-metric-card">
+                <span class="a4-metric-card__label">Records</span>
+                <strong class="a4-metric-card__value">{{ total }}</strong>
+            </article>
+            <article class="a4-metric-card">
+                <span class="a4-metric-card__label">Urgent</span>
+                <strong class="a4-metric-card__value">{{ urgent }}</strong>
+            </article>
+            <article class="a4-metric-card">
+                <span class="a4-metric-card__label">Linked categories</span>
+                <strong class="a4-metric-card__value">{{ categories }}</strong>
+            </article>
+        </section>
+
+        <div class="a4-toolbar a4-toolbar--records">
+            <h3>Recent records</h3>
         </div>
 
         {% for r in records %}
-            <article class="a4-card">
-                <h3><a href="/records/{{ r.id }}">{{ r.title }}</a></h3>
-                <span class="a4-meta">{{ r.estimate_hours }} hours · due {{ r.due_date }} · {{ r.status_text }} · urgent: {{ "Yes" if r.urgent else "No" }}</span>
-                <span class="a4-chip">{{ r.categories|length }} linked categor{{ "y" if r.categories|length == 1 else "ies" }}</span>
-                <div class="a4-card-actions">
-                    <a class="a4-link" href="/records/{{ r.id }}/edit">Edit</a>
-                    <span class="a4-meta"> · </span>
-                    <a class="a4-link" href="/records/{{ r.id }}">View details</a>
+            <article class="a4-card a4-card--landing">
+                <div class="a4-card__top">
+                    <h3><a href="/records/{{ r.id }}">{{ r.title }}</a></h3>
+                    {% if r.urgent %}
+                        <span class="a4-chip">Urgent</span>
+                    {% endif %}
+                </div>
+                <span class="a4-meta">{{ r.estimate_hours }} hours · due {{ r.due_date }} · {{ r.status_text }}</span>
+                <span class="a4-chip a4-chip--soft">{{ r.categories|length }} linked categor{{ "y" if r.categories|length == 1 else "ies" }}</span>
+                <div class="a4-card-actions a4-card-actions--landing">
+                    <a class="a4-btn a4-btn-secondary" href="/records/{{ r.id }}">View details</a>
+                    <a class="a4-btn a4-btn-primary" href="/records/{{ r.id }}/edit">Edit</a>
                 </div>
             </article>
         {% else %}

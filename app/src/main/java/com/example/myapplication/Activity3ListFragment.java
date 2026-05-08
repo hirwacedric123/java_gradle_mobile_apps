@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
 
 public class Activity3ListFragment extends Fragment {
 
@@ -26,6 +29,9 @@ public class Activity3ListFragment extends Fragment {
     private Host host;
     private Activity3DbHelper dbHelper;
     private Activity3Adapter adapter;
+    private TextView textMetricTotal;
+    private TextView textMetricUrgent;
+    private TextView textEmpty;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -52,6 +58,9 @@ public class Activity3ListFragment extends Fragment {
         recycler.setLayoutManager(new LinearLayoutManager(requireContext()));
         adapter = new Activity3Adapter(getLayoutInflater(), row -> host.showDetail(row.id));
         recycler.setAdapter(adapter);
+        textMetricTotal = view.findViewById(R.id.textActivity3MetricTotal);
+        textMetricUrgent = view.findViewById(R.id.textActivity3MetricUrgent);
+        textEmpty = view.findViewById(R.id.textActivity3Empty);
 
         FloatingActionButton fab = view.findViewById(R.id.fabAddActivity3);
         fab.setOnClickListener(v -> host.showForm(Activity3FormFragment.NEW_ID));
@@ -67,7 +76,21 @@ public class Activity3ListFragment extends Fragment {
 
     private void refresh() {
         if (adapter != null) {
-            adapter.replaceData(dbHelper.queryAllProjectSummaries());
+            List<Activity3Summary> rows = dbHelper.queryAllProjectSummaries();
+            adapter.replaceData(rows);
+            bindLandingMetrics(rows);
         }
+    }
+
+    private void bindLandingMetrics(@NonNull List<Activity3Summary> rows) {
+        int urgentCount = 0;
+        for (Activity3Summary row : rows) {
+            if (row.urgent) {
+                urgentCount++;
+            }
+        }
+        textMetricTotal.setText(String.valueOf(rows.size()));
+        textMetricUrgent.setText(String.valueOf(urgentCount));
+        textEmpty.setVisibility(rows.isEmpty() ? View.VISIBLE : View.GONE);
     }
 }

@@ -122,6 +122,10 @@
     <string name="activity3_toolbar_short">A4</string>
     <string name="activity3_menu_open_registry">Assignment 4 registry</string>
     <string name="activity3_list_subtitle">Track project records and linked categories.</string>
+    <string name="activity3_landing_headline">Project dashboard</string>
+    <string name="activity3_metric_total">Total records</string>
+    <string name="activity3_metric_urgent">Urgent items</string>
+    <string name="activity3_empty_state">No records yet. Tap + to create your first project entry.</string>
     <string name="activity3_fab_add_content_description">Add project record</string>
     <string name="activity3_field_title">Project title</string>
     <string name="activity3_field_hours">Estimate hours (number)</string>

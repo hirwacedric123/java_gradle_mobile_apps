@@ -78,6 +78,18 @@ body.a4-app {
     margin-bottom: 1.25rem;
 }
 
+.a4-toolbar--records {
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 0.65rem;
+}
+
+.a4-toolbar--records h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--a4-primary-dark);
+}
+
 .a4-empty {
     color: var(--a4-text-muted);
     padding: 2rem;
@@ -85,6 +97,59 @@ body.a4-app {
     background: var(--a4-surface);
     border-radius: var(--a4-radius);
     border: 1px dashed var(--a4-border);
+}
+
+/* Landing */
+.a4-landing-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
+    border: 1px solid var(--a4-border);
+    border-radius: var(--a4-radius);
+    box-shadow: var(--a4-shadow);
+    padding: 1.1rem 1.25rem;
+}
+
+.a4-landing-hero__content h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--a4-primary-dark);
+}
+
+.a4-landing-hero__content p {
+    margin: 0.35rem 0 0;
+    color: var(--a4-text-muted);
+    font-size: 0.875rem;
+    max-width: 48ch;
+}
+
+.a4-metrics {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.a4-metric-card {
+    background: var(--a4-surface);
+    border: 1px solid var(--a4-border);
+    border-radius: var(--a4-radius-sm);
+    padding: 0.85rem 0.95rem;
+}
+
+.a4-metric-card__label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--a4-text-muted);
+}
+
+.a4-metric-card__value {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 1.2rem;
+    color: var(--a4-primary-dark);
 }
 
 /* Cards */
@@ -118,6 +183,13 @@ body.a4-app {
     color: var(--a4-accent);
 }
 
+.a4-card--landing .a4-card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 .a4-meta {
     display: block;
     font-size: 0.8125rem;
@@ -136,8 +208,21 @@ body.a4-app {
     border: 1px solid var(--a4-accent-border);
 }
 
+.a4-chip--soft {
+    margin-top: 0.2rem;
+    background: #f8fafc;
+    border-color: var(--a4-border);
+    color: var(--a4-text-muted);
+}
+
 .a4-card-actions {
     margin-top: 0.65rem;
+}
+
+.a4-card-actions--landing {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
 }
 
 /* Buttons & links */
@@ -483,6 +568,24 @@ body.a4-app {
 .a4-btn-lg {
     padding: 0.62rem 1.35rem;
     font-size: 0.9375rem;
+}
+
+@media (max-width: 720px) {
+    .a4-landing-hero {
+        flex-direction: column;
+    }
+
+    .a4-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .a4-card-actions--landing {
+        justify-content: stretch;
+    }
+
+    .a4-card-actions--landing .a4-btn {
+        flex: 1;
+    }
 }
 
 .a4-field-actions {

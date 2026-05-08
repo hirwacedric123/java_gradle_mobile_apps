@@ -21,12 +21,107 @@
             app:title="@string/activity3_activity_title"
             app:titleTextColor="@color/white" />
 
-        <TextView
+        <com.google.android.material.card.MaterialCardView
+            style="@style/activity3_card_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/screen_padding"
-            android:text="@string/activity3_list_subtitle"
-            android:textAppearance="@style/activity3_text_body_muted" />
+            android:layout_marginStart="@dimen/screen_padding"
+            android:layout_marginTop="@dimen/school_form_field_gap"
+            android:layout_marginEnd="@dimen/screen_padding"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/activity3_landing_headline"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity3_form_inner_gap"
+                    android:text="@string/activity3_list_subtitle"
+                    android:textAppearance="@style/activity3_text_body_muted" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/school_form_field_gap"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/activity3_form_inner_gap"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="@color/activity3_chip_bg"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/activity3_chip_border"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/school_form_field_gap">
+
+                            <TextView
+                                android:id="@+id/textActivity3MetricTotal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                                android:textColor="@color/activity3_toolbar_dark" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activity3_metric_total"
+                                android:textAppearance="@style/activity3_text_body_muted" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/activity3_card_stroke"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/school_form_field_gap">
+
+                            <TextView
+                                android:id="@+id/textActivity3MetricUrgent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                                android:textColor="@color/activity3_danger" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activity3_metric_urgent"
+                                android:textAppearance="@style/activity3_text_body_muted" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerActivity3"
@@ -34,8 +129,21 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:clipToPadding="false"
+            android:paddingTop="@dimen/school_form_field_gap"
             android:paddingBottom="@dimen/activity3_list_bottom_padding"
             tools:listitem="@layout/item_activity3_row" />
+
+        <TextView
+            android:id="@+id/textActivity3Empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_padding"
+            android:layout_marginBottom="@dimen/screen_padding"
+            android:background="@drawable/bg_activity3_form_inset"
+            android:padding="@dimen/card_padding"
+            android:text="@string/activity3_empty_state"
+            android:textAppearance="@style/activity3_text_body_muted"
+            android:visibility="gone" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
