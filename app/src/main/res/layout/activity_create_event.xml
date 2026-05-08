@@ -17,12 +17,45 @@
         app:title="@string/create_event_title"
         app:titleTextColor="@color/white" />
 
+    <com.google.android.material.card.MaterialCardView
+        style="@style/feature_intro_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/screen_padding"
+        android:layout_marginTop="@dimen/school_form_field_gap"
+        android:layout_marginEnd="@dimen/screen_padding"
+        android:layout_marginBottom="@dimen/school_form_field_gap">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_event_page_headline"
+                android:textAppearance="@style/feature_intro_headline" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity3_form_inner_gap"
+                android:text="@string/create_event_page_lede"
+                android:textAppearance="@style/feature_intro_lede" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:clipToPadding="false"
-        android:padding="@dimen/screen_padding">
+        android:paddingStart="@dimen/screen_padding"
+        android:paddingTop="0dp"
+        android:paddingEnd="@dimen/screen_padding"
+        android:paddingBottom="@dimen/recycler_bottom_padding_nav">
 
         <com.google.android.material.card.MaterialCardView
             style="@style/school_card_style"
@@ -180,4 +213,10 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <include layout="@layout/view_bottom_nav" />
 </LinearLayout>
