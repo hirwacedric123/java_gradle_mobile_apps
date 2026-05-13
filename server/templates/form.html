@@ -1,28 +1,26 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ "Edit" if mode == "edit" else "Create" }} record — Assignment 4</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='assignment4.css') }}" />
-</head>
-<body class="a4-app">
-    <header class="a4-header">
-        <div class="a4-header-inner">
-            <h1>{{ "Edit" if mode == "edit" else "Create" }} record</h1>
-            <p>Structured form · validates required fields · saves to SQLite</p>
-        </div>
-    </header>
-
-    <main class="a4-main">
-        <div class="a4-panel a4-panel--form">
-            <div class="a4-panel__intro">
-                <h2>Project registry</h2>
-                <p>Complete both steps: project fields are stored in the primary table; category fields create the linked row required for your assignment schema.</p>
+{% extends "base.html" %}
+{% block title %}{{ "Edit" if mode == "edit" else "Create" }} record · Assignment 4{% endblock %}
+{% block content %}
+    <section class="a4-page-head">
+        <div class="a4-page-head__titles">
+            <div class="a4-breadcrumbs" aria-label="Breadcrumb">
+                <a class="a4-link" href="/">Records</a>
+                <span class="a4-breadcrumbs__sep" aria-hidden="true">/</span>
+                <span class="a4-breadcrumbs__current">{{ "Edit" if mode == "edit" else "Create" }}</span>
             </div>
+            <h1 class="a4-page-title">{{ "Edit" if mode == "edit" else "Create" }} record</h1>
+            <p class="a4-page-subtitle">Structured form · validates required fields · saves to SQLite.</p>
+        </div>
+    </section>
 
-            <div class="a4-panel__body">
-                <form action="{{ '/records/' ~ record.id ~ '/edit' if mode == 'edit' else '/records/new' }}" method="post" novalidate>
+    <div class="a4-panel a4-panel--form">
+        <div class="a4-panel__intro">
+            <h2>Project registry</h2>
+            <p>Complete both steps: project fields are stored in the primary table; category fields create the linked row required for your assignment schema.</p>
+        </div>
+
+        <div class="a4-panel__body">
+            <form action="{{ '/records/' ~ record.id ~ '/edit' if mode == 'edit' else '/records/new' }}" method="post" novalidate>
                     <section class="a4-form-section" aria-labelledby="sec-project">
                         <div class="a4-form-section__head">
                             <span class="a4-step-badge" aria-hidden="true">1</span>
@@ -35,7 +33,10 @@
                         <div class="a4-form-grid">
                             <div class="a4-field a4-span-2">
                                 <label for="title">
-                                    <span class="a4-label-text">Title</span>
+                                    <span class="a4-label-row">
+                                        <span class="a4-label-text">Title</span>
+                                        <span class="a4-required" aria-hidden="true">Required</span>
+                                    </span>
                                 </label>
                                 <input id="title" name="title" autocomplete="off" value="{{ record.title if record else '' }}" required />
                                 <span class="a4-hint">Short, recognizable label — shown in lists on web and Android.</span>
@@ -43,7 +44,10 @@
 
                             <div class="a4-field">
                                 <label for="estimate_hours">
-                                    <span class="a4-label-text">Estimate (hours)</span>
+                                    <span class="a4-label-row">
+                                        <span class="a4-label-text">Estimate (hours)</span>
+                                        <span class="a4-required" aria-hidden="true">Required</span>
+                                    </span>
                                 </label>
                                 <input id="estimate_hours" type="number" min="1" max="100" name="estimate_hours" inputmode="numeric" value="{{ record.estimate_hours if record else '' }}" required />
                                 <span class="a4-hint">Whole hours between 1 and 100.</span>
@@ -51,7 +55,10 @@
 
                             <div class="a4-field">
                                 <label for="due_date">
-                                    <span class="a4-label-text">Due date</span>
+                                    <span class="a4-label-row">
+                                        <span class="a4-label-text">Due date</span>
+                                        <span class="a4-required" aria-hidden="true">Required</span>
+                                    </span>
                                 </label>
                                 <input id="due_date" type="date" name="due_date" value="{{ record.due_date if record else '' }}" required />
                                 <span class="a4-hint">Stored as yyyy-MM-dd for API parity.</span>
@@ -70,7 +77,10 @@
                             </div>
 
                             <div class="a4-field a4-span-2">
-                                <span class="a4-label-text" id="status-label">Status</span>
+                                <span class="a4-label-row" id="status-label">
+                                    <span class="a4-label-text">Status</span>
+                                    <span class="a4-required" aria-hidden="true">Required</span>
+                                </span>
                                 <div class="a4-segmented" role="radiogroup" aria-labelledby="status-label">
                                     <label>
                                         <input type="radio" name="status" value="0" {% if not record or record.status == 0 %}checked{% endif %} />
@@ -112,7 +122,10 @@
                         <div class="a4-form-grid">
                             <div class="a4-field a4-span-2">
                                 <label for="category_name">
-                                    <span class="a4-label-text">Category name</span>
+                                    <span class="a4-label-row">
+                                        <span class="a4-label-text">Category name</span>
+                                        <span class="a4-required" aria-hidden="true">Required</span>
+                                    </span>
                                 </label>
                                 <input id="category_name" name="category_name" value="{{ category.category_name if category else '' }}" required />
                                 <span class="a4-hint">Describes how this project is grouped or reviewed.</span>
@@ -120,7 +133,10 @@
 
                             <div class="a4-field">
                                 <label for="priority_level">
-                                    <span class="a4-label-text">Priority (1–5)</span>
+                                    <span class="a4-label-row">
+                                        <span class="a4-label-text">Priority (1–5)</span>
+                                        <span class="a4-required" aria-hidden="true">Required</span>
+                                    </span>
                                 </label>
                                 <input id="priority_level" type="number" min="1" max="5" name="priority_level" inputmode="numeric" value="{{ category.priority_level if category else '' }}" required />
                                 <span class="a4-hint">1 = lowest, 5 = highest.</span>
@@ -128,7 +144,10 @@
 
                             <div class="a4-field">
                                 <label for="review_date">
-                                    <span class="a4-label-text">Review date</span>
+                                    <span class="a4-label-row">
+                                        <span class="a4-label-text">Review date</span>
+                                        <span class="a4-required" aria-hidden="true">Required</span>
+                                    </span>
                                 </label>
                                 <input id="review_date" type="date" name="review_date" value="{{ category.review_date if category else '' }}" required />
                                 <span class="a4-hint">Next review checkpoint for this category.</span>
@@ -143,11 +162,9 @@
                             <button class="a4-btn a4-btn-primary a4-btn-lg" type="submit">{{ "Update record" if mode == "edit" else "Save record" }}</button>
                         </div>
                     </div>
-                </form>
+            </form>
 
-                <p class="a4-back-row"><a class="a4-link" href="/">← Back to list</a></p>
-            </div>
+            <p class="a4-back-row"><a class="a4-link" href="/">← Back to list</a></p>
         </div>
-    </main>
-</body>
-</html>
+    </div>
+{% endblock %}

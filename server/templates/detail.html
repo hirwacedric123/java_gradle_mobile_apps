@@ -1,49 +1,75 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ record.title }} — Assignment 4</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='assignment4.css') }}" />
-</head>
-<body class="a4-app">
-    <header class="a4-header">
-        <div class="a4-header-inner">
-            <h1>Record details</h1>
-            <p>{{ record.title }}</p>
+{% extends "base.html" %}
+{% block title %}{{ record.title }} · Assignment 4{% endblock %}
+{% block content %}
+    <section class="a4-page-head">
+        <div class="a4-page-head__titles">
+            <div class="a4-breadcrumbs" aria-label="Breadcrumb">
+                <a class="a4-link" href="/">Records</a>
+                <span class="a4-breadcrumbs__sep" aria-hidden="true">/</span>
+                <span class="a4-breadcrumbs__current">{{ record.title }}</span>
+            </div>
+            <h1 class="a4-page-title">{{ record.title }}</h1>
+            <p class="a4-page-subtitle">Record overview and linked category details.</p>
         </div>
-    </header>
+        <div class="a4-page-head__actions">
+            <a class="a4-btn a4-btn-secondary a4-btn-lg" href="/records/{{ record.id }}/edit">Edit</a>
+            <form class="a4-inline-form" action="/records/{{ record.id }}/delete" method="post">
+                <button class="a4-btn a4-btn-danger a4-btn-lg" type="submit" onclick="return confirm('Delete this record?');">Delete</button>
+            </form>
+        </div>
+    </section>
 
-    <main class="a4-main">
-        <article class="a4-card">
-            <h2 class="a4-detail-title">{{ record.title }}</h2>
-            <div class="a4-line"><strong>Estimate</strong> · {{ record.estimate_hours }}h</div>
-            <div class="a4-line"><strong>Due date</strong> · {{ record.due_date }}</div>
-            <div class="a4-line"><strong>Status</strong> · {{ record.status_text }}</div>
-            <div class="a4-line"><strong>Urgent</strong> · {{ "Yes" if record.urgent else "No" }}</div>
+    <article class="a4-card a4-detail">
+        <div class="a4-detail__top">
+            {% if record.urgent %}
+                <span class="a4-chip">Urgent</span>
+            {% endif %}
+            <span class="a4-status-pill a4-status-pill--{{ record.status_text|lower }}">{{ record.status_text }}</span>
+        </div>
 
-            <div class="a4-detail-section">
-                <h3>Linked categories</h3>
-                <ul>
+        <dl class="a4-dl">
+            <div class="a4-dl__row">
+                <dt>Estimate</dt>
+                <dd>{{ record.estimate_hours }}h</dd>
+            </div>
+            <div class="a4-dl__row">
+                <dt>Due date</dt>
+                <dd>{{ record.due_date }}</dd>
+            </div>
+            <div class="a4-dl__row">
+                <dt>Icon key</dt>
+                <dd><code class="a4-code">{{ record.image_key }}</code></dd>
+            </div>
+        </dl>
+
+        <div class="a4-detail-section">
+            <h3>Linked categories</h3>
+            <div class="a4-table" role="table" aria-label="Linked categories">
+                <div class="a4-table__head" role="rowgroup">
+                    <div class="a4-table__row a4-table__row--head" role="row">
+                        <div class="a4-table__cell" role="columnheader">Name</div>
+                        <div class="a4-table__cell" role="columnheader">Priority</div>
+                        <div class="a4-table__cell" role="columnheader">Review date</div>
+                    </div>
+                </div>
+                <div class="a4-table__body" role="rowgroup">
                     {% for c in record.categories %}
-                        <li>{{ c.category_name }} — priority {{ c.priority_level }} — review {{ c.review_date }}</li>
+                        <div class="a4-table__row" role="row">
+                            <div class="a4-table__cell" role="cell">{{ c.category_name }}</div>
+                            <div class="a4-table__cell" role="cell">
+                                <span class="a4-priority-pill a4-priority-pill--{{ c.priority_level }}">P{{ c.priority_level }}</span>
+                            </div>
+                            <div class="a4-table__cell" role="cell">{{ c.review_date }}</div>
+                        </div>
                     {% else %}
-                        <li>No categories linked.</li>
+                        <div class="a4-empty a4-empty--tight">No categories linked.</div>
                     {% endfor %}
-                </ul>
+                </div>
             </div>
+        </div>
+    </article>
 
-            <div class="a4-detail-actions">
-                <form action="/records/{{ record.id }}/delete" method="post">
-                    <button class="a4-btn a4-btn-danger" type="submit">Delete record</button>
-                </form>
-                <p class="a4-detail-footer-links">
-                    <a class="a4-link" href="/records/{{ record.id }}/edit">Edit this record</a>
-                    <span class="a4-meta"> · </span>
-                    <a class="a4-link" href="/">Back to list</a>
-                </p>
-            </div>
-        </article>
-    </main>
-</body>
-</html>
+    <div class="a4-back-row">
+        <a class="a4-link" href="/">← Back to list</a>
+    </div>
+{% endblock %}

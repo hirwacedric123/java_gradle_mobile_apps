@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Assignment 4{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assignment4.css') }}" />
+</head>
+<body class="a4-app">
+    <a class="a4-skip-link" href="#main">Skip to content</a>
+
+    <header class="a4-topbar">
+        <div class="a4-topbar-inner">
+            <div class="a4-brand">
+                <a class="a4-brand__link" href="/">
+                    <span class="a4-brand__mark" aria-hidden="true"></span>
+                    <span class="a4-brand__text">Assignment 4</span>
+                </a>
+                <span class="a4-brand__sub">Registry</span>
+            </div>
+
+            <nav class="a4-nav" aria-label="Primary">
+                <a class="a4-nav__link {% if request.path == '/' %}is-active{% endif %}" href="/">Dashboard</a>
+                <a class="a4-nav__link {% if request.path.startswith('/records/new') %}is-active{% endif %}" href="/records/new">Create</a>
+                <a class="a4-nav__link" href="/api/records" target="_blank" rel="noreferrer">API</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" class="a4-main">
+        {% block content %}{% endblock %}
+        <footer class="a4-footer">
+            <p class="a4-footer__text">
+                <span class="a4-footer__muted">Flask · SQLite ·</span>
+                <span class="a4-footer__muted">UI follows your Android palette</span>
+            </p>
+        </footer>
+    </main>
+</body>
+</html>

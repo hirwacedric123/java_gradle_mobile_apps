@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.myapplication.network.Activity3ApiClient;
 
 import java.util.List;
 
@@ -32,6 +34,8 @@ public class Activity3ListFragment extends Fragment {
     private TextView textMetricTotal;
     private TextView textMetricUrgent;
     private TextView textEmpty;
+    private Activity3ApiClient apiClient;
+    private boolean syncInFlight = false;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -50,6 +54,7 @@ public class Activity3ListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         dbHelper = new Activity3DbHelper(requireContext());
+        apiClient = new Activity3ApiClient(requireContext());
 
         MaterialToolbar toolbar = view.findViewById(R.id.toolbarActivity3List);
         toolbar.setNavigationOnClickListener(v -> requireActivity().finish());
@@ -71,7 +76,35 @@ public class Activity3ListFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        syncFromServer();
         refresh();
+    }
+
+    private void syncFromServer() {
+        if (syncInFlight || apiClient == null) {
+            return;
+        }
+        syncInFlight = true;
+        apiClient.fetchAll(new Activity3ApiClient.SyncCallback() {
+            @Override
+            public void onSuccess(
+                    @NonNull List<Activity3Summary> summaries,
+                    @NonNull List<Activity3CategoryRow> categories) {
+                dbHelper.replaceFromServer(summaries, categories);
+                syncInFlight = false;
+                if (isAdded()) {
+                    refresh();
+                }
+            }
+
+            @Override
+            public void onError(@NonNull Exception e) {
+                syncInFlight = false;
+                if (isAdded()) {
+                    Toast.makeText(requireContext(), R.string.activity3_sync_failed, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void refresh() {

@@ -28,7 +28,11 @@ public final class Activity3ApiClient {
         void onError(@NonNull Exception e);
     }
 
-    private static final String BASE_URL = "http://10.0.2.2:5000/api";
+    /**
+     * Emulator: use http://10.0.2.2:5000/api to reach the host machine.
+     * Real phone: use your PC LAN IP shown by Flask (e.g. http://192.168.1.128:5000/api).
+     */
+    private static final String BASE_URL = "http://192.168.1.128:5000/api";
     private final RequestQueue queue;
 
     public Activity3ApiClient(@NonNull Context context) {
