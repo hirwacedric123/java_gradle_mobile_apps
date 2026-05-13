@@ -93,6 +93,19 @@ public final class Activity3ApiClient {
         queue.add(request);
     }
 
+    public void deleteRecord(
+            long recordId,
+            @NonNull Runnable onOk,
+            @NonNull Response.ErrorListener onError) {
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.DELETE,
+                BASE_URL + "/records/" + recordId,
+                null,
+                response -> onOk.run(),
+                onError);
+        queue.add(request);
+    }
+
     private static Parsed parse(@NonNull JSONArray response) throws JSONException {
         List<Activity3Summary> summaries = new ArrayList<>();
         List<Activity3CategoryRow> categories = new ArrayList<>();

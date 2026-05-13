@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
+import com.example.myapplication.network.Activity3ApiClient;
 
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class Activity3DetailFragment extends Fragment {
 
     private Host host;
     private Activity3DbHelper dbHelper;
+    private Activity3ApiClient apiClient;
     private long projectId = -1L;
 
     @Override
@@ -60,6 +62,7 @@ public class Activity3DetailFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         dbHelper = new Activity3DbHelper(requireContext());
+        apiClient = new Activity3ApiClient(requireContext());
         if (getArguments() != null) {
             projectId = getArguments().getLong(ARG_ID, -1L);
         }
@@ -72,9 +75,20 @@ public class Activity3DetailFragment extends Fragment {
 
         MaterialButton delete = view.findViewById(R.id.buttonActivity3Delete);
         delete.setOnClickListener(v -> {
-            dbHelper.deleteProject(projectId);
-            Toast.makeText(requireContext(), R.string.activity3_deleted, Toast.LENGTH_SHORT).show();
-            host.showList(false);
+            apiClient.deleteRecord(
+                    projectId,
+                    () -> {
+                        dbHelper.deleteProject(projectId);
+                        if (isAdded()) {
+                            Toast.makeText(requireContext(), R.string.activity3_deleted, Toast.LENGTH_SHORT).show();
+                            host.showList(false);
+                        }
+                    },
+                    error -> {
+                        if (isAdded()) {
+                            Toast.makeText(requireContext(), R.string.activity3_sync_failed, Toast.LENGTH_SHORT).show();
+                        }
+                    });
         });
 
         bind(view);
