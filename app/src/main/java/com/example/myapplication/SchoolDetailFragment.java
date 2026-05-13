@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
@@ -62,6 +63,22 @@ public class SchoolDetailFragment extends Fragment {
                                 .replace(R.id.fragment1, SchoolFormFragment.newInstance(schoolId))
                                 .addToBackStack(null)
                                 .commit());
+
+        MaterialButton delete = view.findViewById(R.id.buttonDeleteSchool);
+        delete.setOnClickListener(
+                v ->
+                        new MaterialAlertDialogBuilder(requireContext())
+                                .setTitle(R.string.school_delete_confirm_title)
+                                .setMessage(R.string.school_delete_confirm_message)
+                                .setNegativeButton(R.string.school_delete_confirm_no, (d, which) -> d.dismiss())
+                                .setPositiveButton(
+                                        R.string.school_delete_confirm_yes,
+                                        (d, which) -> {
+                                            dbHelper.deleteSchool(schoolId);
+                                            Toast.makeText(requireContext(), R.string.school_deleted, Toast.LENGTH_SHORT).show();
+                                            requireActivity().getSupportFragmentManager().popBackStack();
+                                        })
+                                .show());
 
         bind(view);
     }

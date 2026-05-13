@@ -287,4 +287,8 @@ public final class SchoolDbHelper extends SQLiteOpenHelper {
         List<CourseRow> list = queryCoursesForSchool(schoolId);
         return list.isEmpty() ? null : list.get(0);
     }
+
+    public void deleteSchool(long schoolId) {
+        getWritableDatabase().delete(TABLE_SCHOOLS, COL_SCHOOL_ID + "=?", new String[]{String.valueOf(schoolId)});
+    }
 }

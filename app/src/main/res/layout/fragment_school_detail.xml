@@ -93,13 +93,32 @@
                 android:layout_marginTop="@dimen/school_form_field_gap"
                 android:orientation="vertical" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonEditSchool"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/section_spacing"
-                android:text="@string/school_edit"
-                app:backgroundTint="@color/school_fab_bg" />
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonDeleteSchool"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/school_delete"
+                    android:textColor="@color/activity3_danger"
+                    app:rippleColor="@color/activity3_danger_ripple" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonEditSchool"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/school_form_field_gap"
+                    android:text="@string/school_edit"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/school_fab_bg"
+                    app:rippleColor="@color/school_control_ripple" />
+            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

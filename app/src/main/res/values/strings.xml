@@ -106,6 +106,7 @@
     <string name="school_save">Save record</string>
     <string name="school_cancel">Cancel</string>
     <string name="school_edit">Edit</string>
+    <string name="school_delete">Delete</string>
     <string name="school_detail_title">School details</string>
     <string name="school_courses_heading">Courses at this school</string>
     <string name="school_course_line_format">%1$s · %2$d credits · starts %3$s</string>
@@ -119,6 +120,11 @@
     <string name="school_error_year">Enter a valid founding year.</string>
     <string name="school_error_credits">Enter credits between 1 and 12.</string>
     <string name="school_saved">Saved. List updated.</string>
+    <string name="school_deleted">School deleted.</string>
+    <string name="school_delete_confirm_title">Delete school?</string>
+    <string name="school_delete_confirm_message">This will remove the school and its linked course(s).</string>
+    <string name="school_delete_confirm_yes">Delete</string>
+    <string name="school_delete_confirm_no">Cancel</string>
     <string name="school_form_add_title">Add school</string>
     <string name="school_form_edit_title">Edit school</string>
     <string name="activity3_activity_title">Assignment 4 registry</string>
